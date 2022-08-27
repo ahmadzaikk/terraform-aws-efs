@@ -8,6 +8,6 @@ output "arn" {
   description = "EFS ARN"
 }
 output "access_points_arn" {
-value       = aws_efs_access_point.default[arn].arn
+value       = aws_efs_access_point.default.arn
 description = "The access point list"
 }
