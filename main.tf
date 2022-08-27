@@ -52,7 +52,7 @@ resource "aws_efs_mount_target" "default" {
 }
 
 resource "aws_efs_access_point" "default" {
-  for_each = var.access_points
+  for_each = var.enabled ? var.access_points : {}
 
   file_system_id = join("", aws_efs_file_system.default.*.id)
 
