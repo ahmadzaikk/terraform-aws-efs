@@ -3,6 +3,12 @@ variable "allowed_cidr_blocks" {
   default     = []
   description = "The CIDR blocks from which to allow `ingress` traffic to the EFS"
 }
+
+variable "enabled" {
+  description = "Set to false to prevent the module from creating ecs cluster"
+  type        = bool
+  default     = true
+}
 variable "policy" {
   description = "Valid JSON policies for the role"
   type        = string
