@@ -3,11 +3,11 @@
    description = "The file system ID"
  }
 
-output "file_system_arn" {
+output "arn" {
   value       = aws_efs_file_system.default.arn
   description = "EFS ARN"
 }
-output "access_points_arn" {
-value       = aws_efs_access_point.default.*.arn
-description = "The access point list"
-}
+#output "access_points_arn" {
+#value       = aws_efs_access_point.default.*.arn
+#description = "The access point list"
+#}
