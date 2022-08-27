@@ -8,6 +8,6 @@ output "arn" {
   description = "EFS ARN"
 }
 output "access_points_arn" {
-value       = local.enabled ? { for arn in sort(keys(var.access_points)) : arn => aws_efs_access_point.default[arn].arn } : null
+value       = var.enabled ? { for arn in sort(keys(var.access_points)) : arn => aws_efs_access_point.default[arn].arn } : null
 description = "The access point list"
 }
