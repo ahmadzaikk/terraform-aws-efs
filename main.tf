@@ -86,4 +86,5 @@ resource "aws_efs_access_point" "default" {
 resource "aws_efs_file_system_policy" "policy" {
   file_system_id = aws_efs_file_system.default.id
   policy = var.policy
+  depends_on = [aws_efs_file_system.default, aws_efs_access_point.default]
 }
