@@ -82,9 +82,16 @@ resource "aws_efs_access_point" "default" {
 
   tags = var.tags
 }
+
+    
+resource "time_sleep" "this" {
+  create_duration = "100s"
+
+  depends_on = [aws_efs_file_system.default, aws_efs_access_point.default]
+}
     
 resource "aws_efs_file_system_policy" "policy" {
   file_system_id = aws_efs_file_system.default.id
   policy = var.policy
-  depends_on = [aws_efs_file_system.default, aws_efs_access_point.default]
+  depends_on = [time_sleep.this]
 }
